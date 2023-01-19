@@ -1,6 +1,6 @@
 from flask import jsonify, Blueprint
 from utils import *
-from logger import get_logger
+from logger.logger import get_logger
 
 api_ = Blueprint("api", __name__, url_prefix="/api/")
 log = get_logger(__name__)
