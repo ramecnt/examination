@@ -50,35 +50,30 @@
     </div>
 </nav>
 
-<p class="text-sm-start">Start aligned text on viewports sized SM (small) or wider.</p>
+<p class="text-sm-start"></p>
 
 <table class="table">
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">station</th>
+        <th scope="col">route</th>
+        <th scope="col">remarks</th>
+        <th scope="col">changes</th>
+        <th scope="col">timetable</th>
     </tr>
     </thead>
     <tbody>
+    {% for i in range(m | length) %}
     <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{m[i].station}}</td>
+        <td>{{m[i].halt}}</td>
+        <td>{{m[i].remark}}</td>
+        <td>{{m[i].changes}}</td>
+        <td>отбытие {{m[i].departure}}, прибытие {{m[i].arrival}}</td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
+    {% endfor %}
     </tbody>
 </table>
 
