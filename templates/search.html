@@ -42,43 +42,40 @@
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" method="GET" action="/page4">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" method="GET" action="/search/">
+                <input class="form-control me-2" type="search" name="s" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Поиск</button>
             </form>
         </div>
     </div>
 </nav>
 
-<p class="text-sm-start">Start aligned text on viewports sized SM (small) or wider.</p>
+<p class="text-sm-start"><h2>Поиск по электричке номер {{m[0].number}}</h2></p>
 
 <table class="table">
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">number</th>
+        <th scope="col">station</th>
+        <th scope="col">route</th>
+        <th scope="col">remarks</th>
+        <th scope="col">changes</th>
+        <th scope="col">timetable</th>
     </tr>
     </thead>
     <tbody>
+    {% for i in range(m | length) %}
     <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{m[i].number}}</td>
+        <td>{{m[i].station}}</td>
+        <td>{{m[i].halt}}</td>
+        <td>{{m[i].remark}}</td>
+        <td>{{m[i].changes}}</td>
+        <td>отбытие {{m[i].departure}}, прибытие {{m[i].arrival}}</td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
+    {% endfor %}
     </tbody>
 </table>
 
