@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from utils import *
 from api.api import api_
-from logger import get_logger
+from logger.logger import get_logger
 
 app = Flask(__name__, template_folder="templates")
 app.register_blueprint(api_)
